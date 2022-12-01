@@ -1,7 +1,11 @@
-# cs542-fall-22-assign3
+# cs542-fall-22-assign4
 
+## Team
 ## Name: Abhishek Soni
 ## Email: asoni1@binghamton.edu
+
+## Name: Mohmed Anis Agwan
+## Email: magwan@binghamton.edu
 
 -----------------------------------------------------------------------
 ### Instruction for running the project
@@ -31,17 +35,9 @@ Command: ant -buildfile sentenceAnalysis/src/build.xml run -Darg0=sentenceInputF
 -----------------------------------------------------------------------
 ## Description about the functionalities:
 -----------------------------------------------------------------------
-- I have created two CampusTourWorkshops like one for Graduates and one for under-graduates.
 
-- I have created a CampusTour class implmenting Tour Interface which will contain all the types of activities for completing the tour.
 
-- I have then created an Activity Interface for all the activities class like VisitBuilding, PickingGift, GoForLunch, AttendShortLecture implementing Activity Interface.
 
-- I have created a concrete class for every spending Interface like CostInDollars class for CostI interface and other.
-
-- I have then created enums for buildings, courses, ModeOfLecture and ModeOfTransport in seperate package called enums.
-
-- I have created an error output file at the start of the application.
 
 -----------------------------------------------------------------------
 ### Academic Honesty statement:
@@ -56,4 +52,4 @@ grade of 0 for the involved assignment for my first offense and that I
 will receive a grade of F for the course for any additional
 offense.""
 
-Date: -- 11/17/2022
+Date: --
