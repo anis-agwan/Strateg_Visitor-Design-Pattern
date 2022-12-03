@@ -1,5 +1,13 @@
 package mySentenceAnalyzer.driver;
 
+import java.util.Arrays;
+
+import mySentenceAnalyzer.Elements.MyArrayList;
+import mySentenceAnalyzer.util.FileProcessor;
+import mySentenceAnalyzer.util.FileProcessorInterface;
+import mySentenceAnalyzer.visitors.KMostFrequentWordsVisitor;
+import mySentenceAnalyzer.visitors.Visitor;
+
 /**
  * @author placeholder
  *
@@ -23,6 +31,20 @@ public class Driver {
 			System.err.println("Error: Incorrect number of arguments. Program accepts 6 argumnets.");
 			System.exit(0);
 		}
+
+		Visitor kMostFrequentWordsVisitor = new KMostFrequentWordsVisitor();
+
+		Visitor spellChVisitor = new KMostFrequentWordsVisitor();
+
+		FileProcessorInterface fileProcessor = new FileProcessor();
+		
+        String inputData = fileProcessor.readInputFile(args[0]);
+
+        MyArrayList myArrayList = new MyArrayList( Arrays.asList( inputData.split("\\.") ) );
+
+		myArrayList.accept(kMostFrequentWordsVisitor);
+
+		myArrayList.accept(spellChVisitor);
 
 		System.out.println("Hello ! Lets start the assignment. Args length = "+ args.length);
 	}

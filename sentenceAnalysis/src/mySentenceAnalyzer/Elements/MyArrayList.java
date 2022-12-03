@@ -10,13 +10,17 @@ public class MyArrayList implements MyElement {
 
     List<String> myElement = new ArrayList<>();
 
+    public MyArrayList(List<String> myElementIn){
+        myElement = myElementIn;
+    }
+
     public Iterator getIterator(){
 
         return myElement.iterator();
     }
 
     public void accept(Visitor visitor){
-        // call visitor method and pass this in the argument
+        visitor.visit(this);
     }
     
 }
