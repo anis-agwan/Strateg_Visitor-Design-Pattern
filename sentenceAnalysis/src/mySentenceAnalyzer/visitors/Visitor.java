@@ -1,8 +1,8 @@
 package mySentenceAnalyzer.visitors;
 
-import mySentenceAnalyzer.Elements.MyElement;
+import mySentenceAnalyzer.Elements.MyArrayList;
 
 public interface Visitor {
     
-    public void visit(MyElement myElement);
+    public void visit(MyArrayList myElement);
 }
