@@ -5,7 +5,7 @@
 ## Email: asoni1@binghamton.edu
 
 ## Name: Mohmed Anis Agwan
-## Email: magwan@binghamton.edu
+## Email: magwan1@binghamton.edu
 
 -----------------------------------------------------------------------
 ### Instruction for running the project
