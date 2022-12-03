@@ -1,4 +1,4 @@
-package mySentenceAnalyzer.driver;
+package mySentenceAnalyzer.Elements;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -6,7 +6,7 @@ import java.util.List;
 
 import mySentenceAnalyzer.visitors.Visitor;
 
-public class MyArrayList {
+public class MyArrayList implements MyElement {
 
     List<String> myElement = new ArrayList<>();
 
@@ -18,6 +18,5 @@ public class MyArrayList {
     public void accept(Visitor visitor){
         // call visitor method and pass this in the argument
     }
-    
     
 }
