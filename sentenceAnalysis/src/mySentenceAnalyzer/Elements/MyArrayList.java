@@ -8,7 +8,7 @@ import mySentenceAnalyzer.visitors.Visitor;
 
 public class MyArrayList implements MyElement {
 
-    List<String> myElement = new ArrayList<>();
+    private List<String> myElement = new ArrayList<>();
 
     public MyArrayList(List<String> myElementIn){
         myElement = myElementIn;

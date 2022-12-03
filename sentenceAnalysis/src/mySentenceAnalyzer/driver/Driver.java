@@ -15,7 +15,7 @@ import mySentenceAnalyzer.visitors.Visitor;
 public class Driver {
 
 	public static String errorLogFileName;
-
+	public static Integer kNumber;
 	public static void main(String[] args) {
 
 		/*
@@ -32,9 +32,11 @@ public class Driver {
 			System.exit(0);
 		}
 
-		Visitor kMostFrequentWordsVisitor = new KMostFrequentWordsVisitor();
+		kNumber = Integer.parseInt(args[2]);
 
-		Visitor spellChVisitor = new KMostFrequentWordsVisitor();
+		System.out.println("K: " + args[2]);
+
+		Visitor kMostFrequentWordsVisitor = new KMostFrequentWordsVisitor();
 
 		FileProcessorInterface fileProcessor = new FileProcessor();
 		
@@ -44,7 +46,7 @@ public class Driver {
 
 		myArrayList.accept(kMostFrequentWordsVisitor);
 
-		myArrayList.accept(spellChVisitor);
+		//myArrayList.accept(spellChVisitor);
 
 		System.out.println("Hello ! Lets start the assignment. Args length = "+ args.length);
 	}
