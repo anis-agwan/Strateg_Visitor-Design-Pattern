@@ -8,11 +8,11 @@ import mySentenceAnalyzer.visitors.Visitor;
 
 public class MyArrayList {
 
-    List<String> sentences = new ArrayList<>();
+    List<String> myElement = new ArrayList<>();
 
     public Iterator getIterator(){
 
-        return sentences.iterator();
+        return myElement.iterator();
     }
 
     public void accept(Visitor visitor){

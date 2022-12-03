@@ -10,7 +10,6 @@ public class Driver {
 
 	public static void main(String[] args) {
 
-		System.out.println("Hello ! Lets start the assignment. Args length = "+ args.length);
 		/*
 		 * As the build.xml specifies the arguments as argX, in case the
 		 * argument value is not given java takes the default value specified in
@@ -24,5 +23,7 @@ public class Driver {
 			System.err.println("Error: Incorrect number of arguments. Program accepts 6 argumnets.");
 			System.exit(0);
 		}
+
+		System.out.println("Hello ! Lets start the assignment. Args length = "+ args.length);
 	}
 }
