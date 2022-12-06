@@ -30,7 +30,7 @@ Command: ant -buildfile sentenceAnalysis/src/build.xml tar
 -----------------------------------------------------------------------
 ## Instruction to run:
 
-Command: ant -buildfile sentenceAnalysis/src/build.xml run -Darg0=inputFile.txt -Darg1=spellingInputFile.txt -Darg2=10 -Darg3=KMostFrequentWords.txt -Darg4=spellCheckOutput.txt -Darg5=2
+Command: ant -buildfile sentenceAnalysis/src/build.xml run -Darg0=inputFile.txt -Darg1=english_american_spellings.txt -Darg2=10 -Darg3=KMostFrequentWords.txt -Darg4=spellCheckOutput.txt -Darg5=2
 
 -----------------------------------------------------------------------
 ## Description about the functionalities:

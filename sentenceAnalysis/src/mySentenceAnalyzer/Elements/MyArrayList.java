@@ -10,11 +10,18 @@ public class MyArrayList implements MyElement {
 
     private List<String> myElement = new ArrayList<>();
 
-    public MyArrayList(List<String> myElementIn){
+    private String allSentenceString;
+
+    public MyArrayList(List<String> myElementIn, String allSentenceStringIn){
         myElement = myElementIn;
+        allSentenceString = allSentenceStringIn;
     }
 
-    public Iterator getIterator(){
+    public String getAllSentenceString(){
+        return allSentenceString;
+    }
+
+    public Iterator<String> getIterator(){
 
         return myElement.iterator();
     }

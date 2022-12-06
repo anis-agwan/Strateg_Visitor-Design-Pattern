@@ -1,11 +1,11 @@
 package mySentenceAnalyzer.driver;
 
 import java.util.Arrays;
-
 import mySentenceAnalyzer.Elements.MyArrayList;
 import mySentenceAnalyzer.util.FileProcessor;
 import mySentenceAnalyzer.util.FileProcessorInterface;
 import mySentenceAnalyzer.visitors.KMostFrequentWordsVisitor;
+import mySentenceAnalyzer.visitors.SpellCheckVisitor;
 import mySentenceAnalyzer.visitors.Visitor;
 
 /**
@@ -15,7 +15,11 @@ import mySentenceAnalyzer.visitors.Visitor;
 public class Driver {
 
 	public static String errorLogFileName;
+
 	public static Integer kNumber;
+	
+	public static String english_american_spelling_inputFile;
+	
 	public static void main(String[] args) {
 
 		/*
@@ -34,20 +38,24 @@ public class Driver {
 
 		kNumber = Integer.parseInt(args[2]);
 
-		System.out.println("K: " + args[2]);
+		english_american_spelling_inputFile = args[1];
 
+		// KMostFrequentWords Visitor object created
 		Visitor kMostFrequentWordsVisitor = new KMostFrequentWordsVisitor();
+
+		// SpellCheckVisitorCreated
+		Visitor spellCheckVisitor = new SpellCheckVisitor();
 
 		FileProcessorInterface fileProcessor = new FileProcessor();
 		
         String inputData = fileProcessor.readInputFile(args[0]);
 
-        MyArrayList myArrayList = new MyArrayList( Arrays.asList( inputData.split("\\.") ) );
+        MyArrayList myArrayList = new MyArrayList( Arrays.asList( inputData.split("\\.") ), inputData );
 
 		myArrayList.accept(kMostFrequentWordsVisitor);
 
-		//myArrayList.accept(spellChVisitor);
+		myArrayList.accept(spellCheckVisitor);
 
-		System.out.println("Hello ! Lets start the assignment. Args length = "+ args.length);
+		System.out.println("\nThank you! Have a Nice Day!");
 	}
 }

@@ -1,0 +1,3 @@
+centre:center
+cosy:cozy
+mobile:cellphone
