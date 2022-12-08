@@ -21,7 +21,7 @@ public class SpellCheckVisitor implements Visitor{
     @Override
     public void visit(MyArrayList myElement) {
 
-        // checkSpellFromInputFileAndUpdate(Driver.english_american_spelling_inputFile, caseInsensitive_strategy, myElement.getAllSentenceString());
+        checkSpellFromInputFileAndUpdate(Driver.english_american_spelling_inputFile, caseInsensitive_strategy, myElement.getAllSentenceString());
 
         checkSpellFromInputFileAndUpdate(Driver.english_american_spelling_inputFile, caseSensitive_strategy, myElement.getAllSentenceString());
         

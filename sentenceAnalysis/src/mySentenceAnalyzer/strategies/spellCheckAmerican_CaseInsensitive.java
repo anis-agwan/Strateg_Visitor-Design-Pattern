@@ -4,7 +4,10 @@ public class spellCheckAmerican_CaseInsensitive implements Strategy {
 
     @Override
     public String checkAndUpdate(String newWord, String oldWord, String sentences) {
-        return null;
+
+        String sentence = sentences.replaceAll( "(?i)"+oldWord.trim(), newWord.trim());
+
+        return sentence;
     }
     
 }
