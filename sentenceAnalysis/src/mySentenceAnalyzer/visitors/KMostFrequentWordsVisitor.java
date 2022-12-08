@@ -7,9 +7,12 @@ import java.util.PriorityQueue;
 
 import mySentenceAnalyzer.Elements.MyArrayList;
 import mySentenceAnalyzer.driver.Driver;
+import mySentenceAnalyzer.util.Results;
 import mySentenceAnalyzer.util.WordComparator;
 
 public class KMostFrequentWordsVisitor implements Visitor{
+
+    Results results = new Results();
 
     @Override
     public void visit(MyArrayList myElement) {
@@ -36,12 +39,15 @@ public class KMostFrequentWordsVisitor implements Visitor{
                 pq.offer(entry);
         }
 
+        System.out.println("Displaying " + Driver.kNumber + " most frequent words\n");        
         for (int i = 0; i < Driver.kNumber; i++) {
 
             if( pq.peek() != null){
                 Map.Entry<String, Integer> word = pq.poll();
                 
-                System.out.println("Word = "+ word.getKey() + ", Frequency = " + word.getValue());
+                //System.out.println("Word = "+ word.getKey() + ", Frequency = " + word.getValue());
+                results.displayKMostFreqWords(word.getKey(), word.getValue());
+                results.writeKMostFreqWords(word.getKey(), word.getValue());
             }else{
                 break;
             }

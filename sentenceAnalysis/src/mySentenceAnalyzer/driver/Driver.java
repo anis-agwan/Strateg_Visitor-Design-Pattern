@@ -1,5 +1,6 @@
 package mySentenceAnalyzer.driver;
 
+import java.io.File;
 import java.util.Arrays;
 import mySentenceAnalyzer.Elements.MyArrayList;
 import mySentenceAnalyzer.util.FileProcessor;
@@ -19,6 +20,10 @@ public class Driver {
 	public static Integer kNumber;
 	
 	public static String english_american_spelling_inputFile;
+
+	public static File kMostFile;
+
+	public static File spellCheckFile;
 	
 	public static void main(String[] args) {
 
@@ -37,6 +42,25 @@ public class Driver {
 		}
 
 		kNumber = Integer.parseInt(args[2]);
+
+		String kMostFileName = args[3];
+		String spellCheckFileName = args[4];
+
+
+		kMostFile = new File(kMostFileName);
+		spellCheckFile = new File(spellCheckFileName);
+
+		if(kMostFile.delete()) {
+			//System.out.println("Deleted");
+		} else {
+			//System.out.println("Failed");
+		}
+
+		if(spellCheckFile.delete()) {
+			//System.out.println("Deleted");
+		} else {
+			//System.out.println("Failed");
+		}
 
 		english_american_spelling_inputFile = args[1];
 

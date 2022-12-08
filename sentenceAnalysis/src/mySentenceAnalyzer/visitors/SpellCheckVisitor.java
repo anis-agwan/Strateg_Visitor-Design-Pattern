@@ -11,8 +11,11 @@ import mySentenceAnalyzer.driver.Driver;
 import mySentenceAnalyzer.strategies.Strategy;
 import mySentenceAnalyzer.strategies.spellCheckAmerican_CaseInsensitive;
 import mySentenceAnalyzer.strategies.spellCheckAmerican_CaseSensitive;
+import mySentenceAnalyzer.util.Results;
 
 public class SpellCheckVisitor implements Visitor{
+
+    Results results = new Results();
 
     Strategy caseSensitive_strategy = new spellCheckAmerican_CaseSensitive();
 
@@ -55,6 +58,8 @@ public class SpellCheckVisitor implements Visitor{
             }
 
             System.out.println(allSentenceStringIn);
+            results.displaySpellCheck(allSentenceStringIn);
+            results.writeSpellCheck(allSentenceStringIn);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
