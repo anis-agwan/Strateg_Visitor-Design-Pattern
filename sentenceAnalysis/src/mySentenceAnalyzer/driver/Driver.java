@@ -3,8 +3,10 @@ package mySentenceAnalyzer.driver;
 import java.io.File;
 import java.util.Arrays;
 import mySentenceAnalyzer.Elements.MyArrayList;
+import mySentenceAnalyzer.Elements.MyElement;
 import mySentenceAnalyzer.util.FileProcessor;
 import mySentenceAnalyzer.util.FileProcessorInterface;
+import mySentenceAnalyzer.util.MyLogger;
 import mySentenceAnalyzer.visitors.KMostFrequentWordsVisitor;
 import mySentenceAnalyzer.visitors.SpellCheckVisitor;
 import mySentenceAnalyzer.visitors.Visitor;
@@ -18,6 +20,8 @@ public class Driver {
 	public static String errorLogFileName;
 
 	public static Integer kNumber;
+
+	public static String inputFile;
 	
 	public static String english_american_spelling_inputFile;
 
@@ -41,11 +45,23 @@ public class Driver {
 			System.exit(0);
 		}
 
+		inputFile = args[0];
+
+		english_american_spelling_inputFile = args[1];
+
 		kNumber = Integer.parseInt(args[2]);
+
+		// checking valid value of variable kNumber
+		if ( kNumber <= 0){
+			System.out.println("Pass valid value for K variable.");
+			System.exit(1);
+		}
+
+		//setting debug level
+		MyLogger.setDebugValue(Integer.parseInt(args[5]));
 
 		String kMostFileName = args[3];
 		String spellCheckFileName = args[4];
-
 
 		kMostFile = new File(kMostFileName);
 		spellCheckFile = new File(spellCheckFileName);
@@ -62,8 +78,6 @@ public class Driver {
 			//System.out.println("Failed");
 		}
 
-		english_american_spelling_inputFile = args[1];
-
 		// KMostFrequentWords Visitor object created
 		Visitor kMostFrequentWordsVisitor = new KMostFrequentWordsVisitor();
 
@@ -72,11 +86,16 @@ public class Driver {
 
 		FileProcessorInterface fileProcessor = new FileProcessor();
 		
-        String inputData = fileProcessor.readInputFile(args[0]);
+		/**
+		 * reading input file
+		 */
+        String inputData = fileProcessor.readInputFile(inputFile);
 
-        MyArrayList myArrayList = new MyArrayList( Arrays.asList( inputData.split("\\.") ), inputData );
+        MyElement myArrayList = new MyArrayList( Arrays.asList( inputData.split("\\.") ), inputData );
 
 		myArrayList.accept(kMostFrequentWordsVisitor);
+
+		System.out.println("\n\n-----------------------------------------------------------");
 
 		myArrayList.accept(spellCheckVisitor);
 

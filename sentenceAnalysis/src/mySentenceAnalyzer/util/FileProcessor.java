@@ -28,31 +28,25 @@ public class FileProcessor implements FileProcessorInterface{
 
             while ((line = bufferedReader.readLine()) != null) {
                 // logic for each line breakdown
-                // retrieveCourseInfo(line);
+                // concatination all the liines into a single string
                 inputData = inputData + line;
             }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            // write this error in error log file
-            // fileDisplayInterface.writeErrorLog(
-            //         "Error : File "+ fileName +" could not be found and throws Exception = " + e.getMessage());
+
             System.out.println("----------------Exiting System due to Exception");
             // exit the system
             System.exit(1);
         }catch (IOException io) {
             io.printStackTrace();
-            // write this error in error log file
-            // fileDisplayInterface
-            //         .writeErrorLog("Error : File Reader could not read file properly and thows IOException.");
+            
             System.out.println("----------------Exiting System due to Exception");
             // exit the system
             System.exit(1);
         } catch (Exception e) {
             e.printStackTrace();
-            // write this error in error log file
-            // fileDisplayInterface.writeErrorLog(
-            //         "Error : File Reader could not read file properly and throws Exception = " + e.getMessage());
+            
             System.out.println("----------------Exiting System due to Exception");
             // exit the system
             System.exit(1);
@@ -62,9 +56,7 @@ public class FileProcessor implements FileProcessorInterface{
                     bufferedReader.close();
                 } catch (IOException io) {
                     io.printStackTrace();
-                    // write this error in error log file
-                    // fileDisplayInterface
-                    //         .writeErrorLog("Error : Buffered Reader close method could not close properly.");
+                    
                     System.out.println("----------------Exiting System due to Exception");
                     // exit the system
                     System.exit(1);

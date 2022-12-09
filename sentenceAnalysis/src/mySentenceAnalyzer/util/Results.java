@@ -1,67 +1,128 @@
 package mySentenceAnalyzer.util;
 
 import mySentenceAnalyzer.driver.Driver;
+import mySentenceAnalyzer.util.MyLogger.DebugLevel;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 public class Results implements FileDisplayInterface, StdoutDisplayInterface {
 	
+    @Override
     public void displayKMostFreqWords(String word, int count) {
-        System.out.println(word + ": " + count);
+        MyLogger.writeMessage("LOGGER: "+word + ": " + count, DebugLevel.RESULTS);
     }
 
+    @Override
     public void displaySpellCheck(String sentences) {
-        System.out.println(sentences);
-        System.out.println("\n\n");
+        MyLogger.writeMessage("LOGGER: \n"+sentences, DebugLevel.RESULTS);
     }
 
+    @Override
     public void writeKMostFreqWords(String word, int count) {
+
+        FileWriter fileWriter = null;;
+
+        BufferedWriter bufferWriter = null;
         try {
-            //System.out.println(Driver.kMostFile.getName());
-            //new FileWriter(Driver.kMostFile, false).close();
-            FileWriter fileWriter = new FileWriter(Driver.kMostFile, true);
-            BufferedWriter bufferWriter = new BufferedWriter(fileWriter);
-            //System.out.println(resString);
-            String resString = String.format("%s: %d", word, count);
-            bufferWriter.write(resString);
-            bufferWriter.write("\n");
+
+            fileWriter = new FileWriter(Driver.kMostFile, true);
+            bufferWriter = new BufferedWriter(fileWriter);
+                
+            // checking if there are no empty words written in file
+            if( word.trim() != ""){
+
+                String resString = String.format("%s: %d", word, count);
+
+                bufferWriter.write(resString);
+                bufferWriter.write("\n");
+            }
+
             bufferWriter.close();
             fileWriter.close();
 
         } catch (FileNotFoundException err) {
-            //errorCheck.logError(errors, err.toString());
-            String errMessage = err.toString() + " : " + err.getStackTrace()[4];
-            //errorCheck.printError(errMessage.toString());
+            err.printStackTrace();
+
+            System.out.println("----------------Exiting System due to Exception");
+            // exit the system
+            System.exit(1);
         } catch (IOException err) {
-            //errorCheck.logError(errors, err.toString());
-            String errMessage = err.toString() + " : " + err.getStackTrace()[4];
-            //errorCheck.printError(errMessage.toString());
+            err.printStackTrace();
+
+            System.out.println("----------------Exiting System due to Exception");
+            // exit the system
+            System.exit(1);
+        }catch (Exception e) {
+            e.printStackTrace();
+            
+            System.out.println("----------------Exiting System due to Exception");
+            // exit the system
+            System.exit(1);
+        } finally {
+            if (bufferWriter != null) {
+                try {
+                    bufferWriter.close();
+                } catch (IOException io) {
+                    io.printStackTrace();
+                   
+                    System.out.println("----------------Exiting System due to Exception");
+                    // exit the system
+                    System.exit(1);
+                }
+            }
         }
     }
 
+    @Override
     public void writeSpellCheck(String sentences) {
+
+        FileWriter fileWriter = null;
+
+        BufferedWriter bufferWriter = null;
+
         try {
-            //System.out.println(Driver.kMostFile.getName());
-            //new FileWriter(Driver.kMostFile, false).close();
-            FileWriter fileWriter = new FileWriter(Driver.spellCheckFile, true);
-            BufferedWriter bufferWriter = new BufferedWriter(fileWriter);
-            //System.out.println(resString);
+
+            fileWriter = new FileWriter(Driver.spellCheckFile, true);
+            bufferWriter = new BufferedWriter(fileWriter);
+
             bufferWriter.write(sentences);
             bufferWriter.write("\n\n");
+            
             bufferWriter.close();
             fileWriter.close();
 
         } catch (FileNotFoundException err) {
-            //errorCheck.logError(errors, err.toString());
-            String errMessage = err.toString() + " : " + err.getStackTrace()[4];
-            //errorCheck.printError(errMessage.toString());
+            err.printStackTrace();
+
+            System.out.println("----------------Exiting System due to Exception");
+            // exit the system
+            System.exit(1);
         } catch (IOException err) {
-            //errorCheck.logError(errors, err.toString());
-            String errMessage = err.toString() + " : " + err.getStackTrace()[4];
-            //errorCheck.printError(errMessage.toString());
+            err.printStackTrace();
+
+            System.out.println("----------------Exiting System due to Exception");
+            // exit the system
+            System.exit(1);
+        }catch (Exception e) {
+            e.printStackTrace();
+            
+            System.out.println("----------------Exiting System due to Exception");
+            // exit the system
+            System.exit(1);
+        } finally {
+            if (bufferWriter != null) {
+                try {
+                    bufferWriter.close();
+                } catch (IOException io) {
+                    io.printStackTrace();
+                   
+                    System.out.println("----------------Exiting System due to Exception");
+                    // exit the system
+                    System.exit(1);
+                }
+            }
         }
     }
 

@@ -12,6 +12,7 @@ public class MyLogger{
     //switch cases for all the levels
     public static void setDebugValue (int levelIn) {
         switch (levelIn) {
+        case 2: debugLevel = DebugLevel.RESULTS; break;
         case 1: debugLevel = DebugLevel.DRIVER; break;
         default: debugLevel = DebugLevel.NONE; break;
         }

@@ -1,3 +1,10 @@
 the: 57
 and: 27
 of: 25
+to: 20
+a: 17
+was: 15
+machine: 11
+in: 10
+used: 8
+be: 7

@@ -36,7 +36,21 @@ Command: ant -buildfile sentenceAnalysis/src/build.xml run -Darg0=inputFile.txt 
 ## Description about the functionalities:
 -----------------------------------------------------------------------
 
+- We have created 2 visitor to perform different functionalitites on different types of data
 
+1. KMostFrequentWords Visitor - to find out K words that have occur most of the time.
+    - We have used HashMaps, priority queue and omparators to implement this logic
+
+2. SpellCheckAmerican Visitor - to find out the word that are mentioned in a special English->American.txt file and convert them accordingly.
+    - This visitor has 2 startegies to implement on a similar kind of data
+        1. Case sensitive - in which we check the words as it is.
+        2. Case In-sensitive - in which we check words in different permutation and combinaton of upper case and lower case using regex.
+
+
+-----------------------------------------------------------------------
+## Citation:
+-----------------------------------------------------------------------
+- https://www.geeksforgeeks.org/implement-priorityqueue-comparator-java/
 
 
 -----------------------------------------------------------------------
@@ -52,4 +66,4 @@ grade of 0 for the involved assignment for my first offense and that I
 will receive a grade of F for the course for any additional
 offense.""
 
-Date: --
+Date: -- 12/08/2022

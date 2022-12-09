@@ -7,12 +7,16 @@ import java.util.PriorityQueue;
 
 import mySentenceAnalyzer.Elements.MyArrayList;
 import mySentenceAnalyzer.driver.Driver;
+import mySentenceAnalyzer.util.FileDisplayInterface;
 import mySentenceAnalyzer.util.Results;
+import mySentenceAnalyzer.util.StdoutDisplayInterface;
 import mySentenceAnalyzer.util.WordComparator;
 
 public class KMostFrequentWordsVisitor implements Visitor{
 
-    Results results = new Results();
+    FileDisplayInterface fileDisplayInterface = new Results();
+
+    StdoutDisplayInterface stdoutDisplayInterface = new Results();
 
     @Override
     public void visit(MyArrayList myElement) {
@@ -45,9 +49,8 @@ public class KMostFrequentWordsVisitor implements Visitor{
             if( pq.peek() != null){
                 Map.Entry<String, Integer> word = pq.poll();
                 
-                //System.out.println("Word = "+ word.getKey() + ", Frequency = " + word.getValue());
-                results.displayKMostFreqWords(word.getKey(), word.getValue());
-                results.writeKMostFreqWords(word.getKey(), word.getValue());
+                stdoutDisplayInterface.displayKMostFreqWords(word.getKey(), word.getValue());
+                fileDisplayInterface.writeKMostFreqWords(word.getKey(), word.getValue());
             }else{
                 break;
             }
