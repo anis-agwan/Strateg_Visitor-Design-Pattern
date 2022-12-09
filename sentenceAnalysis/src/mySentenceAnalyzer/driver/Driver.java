@@ -45,21 +45,6 @@ public class Driver {
 			System.exit(0);
 		}
 
-		inputFile = args[0];
-
-		english_american_spelling_inputFile = args[1];
-
-		kNumber = Integer.parseInt(args[2]);
-
-		// checking valid value of variable kNumber
-		if ( kNumber <= 0){
-			System.out.println("Pass valid value for K variable.");
-			System.exit(1);
-		}
-
-		//setting debug level
-		MyLogger.setDebugValue(Integer.parseInt(args[5]));
-
 		String kMostFileName = args[3];
 		String spellCheckFileName = args[4];
 
@@ -77,6 +62,21 @@ public class Driver {
 		} else {
 			//System.out.println("Failed");
 		}
+
+		inputFile = args[0];
+
+		english_american_spelling_inputFile = args[1];
+
+		kNumber = Integer.parseInt(args[2]);
+
+		// checking valid value of variable kNumber
+		if ( kNumber <= 0){
+			System.out.println("Pass valid value for K variable. K > 0");
+			System.exit(1);
+		}
+
+		//setting debug level
+		MyLogger.setDebugValue(Integer.parseInt(args[5]));
 
 		// KMostFrequentWords Visitor object created
 		Visitor kMostFrequentWordsVisitor = new KMostFrequentWordsVisitor();
